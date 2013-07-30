@@ -1,7 +1,12 @@
 {
     "require": {
         "silex/silex": "1.0.*",
-		"doctrine/dbal": "2.2.*"
+	"taluu/doctrine-orm-provider": "1.0.*",
+	"twig/twig": ">=1.8,<2.0-dev",
+	"symfony/twig-bridge": "~2.3"
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-0": {"": "src/"}
+    }
 }
