@@ -1,0 +1,10 @@
+{% extends "layout.twig" %}
+
+{% block body %}
+	{% for new in news %}
+		<div>
+			<h3>{{ new.title }}</h3>
+			<p>{{ new.short_desc }}</p>
+		</div>
+	{% endfor %}
+{% endblock %}

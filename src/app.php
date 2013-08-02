@@ -1,5 +1,7 @@
 <div style="text-align: right"></div><?php
 
+/*     SETUP     */
+
 $app->get('/setup', function() use ($app)
 { 
 	$sql = "CREATE TABLE IF NOT EXISTS news (
@@ -25,12 +27,10 @@ $app->get('/setup', function() use ($app)
 
 $app->get('/', function () use($app)
 {
-	return $app['twig']->render('layout.twig', array('test' => 'oh un lolcat'));
+	return $app['twig']->render('home.twig', array('news' => $app['news']->get_latest()));
 });
 
 $app->get('/{id}', function ($id) use ($app)
 {
-	$sql = "SELECT * FROM news WHERE id = ?";
-	$post = $app['db']->fetchAssoc($sql, array($id));
-    return 'Hello '.$app->escape($post["title"]);
+	return $app['twig']->render('new.twig', array('new' => $app['news']->get_id($id)));
 });

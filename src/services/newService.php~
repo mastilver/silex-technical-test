@@ -1,0 +1,14 @@
+class News
+{
+	public function __construct()
+	{
+		
+	}
+	
+	public function get_latest()
+	{
+		
+	}
+	
+	
+}

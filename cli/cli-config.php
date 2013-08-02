@@ -1,5 +1,6 @@
 <?php
 
+require_once '../src/bootstrap.php';
 require_once '../vendor/autoload.php';
 
 $classLoader = new \Doctrine\Common\ClassLoader('Doctrine\ORM', realpath(__DIR__ . '/../../lib'));
