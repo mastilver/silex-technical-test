@@ -22,7 +22,7 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 
 $app['news'] = $app->share(function($app)
 {
-	return new NewsService($app['db']);
+	return new NewsService($app['db']/*, $app['form.factory']*/);
 });
 
 

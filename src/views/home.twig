@@ -2,9 +2,18 @@
 
 {% block body %}
 	{% for new in news %}
-		<div>
-			<h3>{{ new.title }}</h3>
-			<p>{{ new.short_desc }}</p>
-		</div>
+		{% if loop.index is odd %}
+			<div class="row">
+			<div class="offset1 span4" >
+		{% else %}
+			<div class="offset2 span4" >
+		{% endif %}
+			
+				<h3>{{ new.title }}</h3>
+				<p>{{ new.short_desc }} <br/><a href="{{ app.request.basepath }}/index.php/{{ new.id}}">view the article</a></p>
+			</div>
+		{% if loop.index is even %}
+			</div><!-- /row -->
+		{% endif %}
 	{% endfor %}
 {% endblock %}
