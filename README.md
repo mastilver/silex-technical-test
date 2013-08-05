@@ -33,14 +33,14 @@ You should be able to visit http://33.33.33.3/1 to view article 1.
 
 The Tasks
 ------
-* Create a new route matching "/", the home route. 
+* Create a new route matching "/", the home route. 	[DONE]
 	* Load in the latest 10 articles in the database
 	* Display them in a list to the user displaying title and short description. 
 	* Give the user a link to click to view the full article.
-* Modify the article view route to display the article, rather than the simple test that is currently there.
-* Install Twig Via Composer as per these [instructions](http://silex.sensiolabs.org/doc/providers/twig.html)
-* Rather than responding inline with some html, use [Twig](http://twig.sensiolabs.org/) templates for the home and article routes.  
-* Use [twitter bootstrap](http://twitter.github.com/bootstrap/) for your templates 
+* Modify the article view route to display the article, rather than the simple test that is currently there. [DONE]
+* Install Twig Via Composer as per these [instructions](http://silex.sensiolabs.org/doc/providers/twig.html) [DONE]
+* Rather than responding inline with some html, use [Twig](http://twig.sensiolabs.org/) templates for the home and article routes.  [DONE]
+* Use [twitter bootstrap](http://twitter.github.com/bootstrap/) for your templates [DONE]
 
 Extras..
 ------
