@@ -28,12 +28,15 @@ $app->get('/setup', function() use ($app)
 
 /*     WEBSITE     */
 
-$app->get('/', function() use($app)
+$app->get('/{page}', function($page) use($app)
 {
-	return $app['twig']->render('home.twig', array('news' => $app['news']->get_latest()));
-});
+	return $app['twig']->render('home.twig', array(	'news' => $app['news']->get_page($page),
+													'total_page' => $app['news']->get_nbr_page(),
+													'current_page' => $page));
+})
+->value('page', 1);
 
-$app->get('/{id}', function($id) use ($app)
+$app->get('/news/{id}', function($id) use ($app)
 {	
 	return $app['twig']->render('new.twig', array('new' => $app['news']->get_id($id)));
 });

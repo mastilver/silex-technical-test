@@ -10,10 +10,22 @@
 		{% endif %}
 			
 				<h3>{{ new.title }}</h3>
-				<p>{{ new.short_desc }} <br/><a href="{{ app.request.basepath }}/index.php/{{ new.id}}">view the article</a></p>
+				<p>{{ new.short_desc }} <br/><a href="{{ app.request.basepath }}/index.php/news/{{ new.id}}">view the article</a></p>
 			</div>
-		{% if loop.index is even %}
+		{% if loop.index is even or loop.last %}
 			</div><!-- /row -->
 		{% endif %}
 	{% endfor %}
+	
+	{% for i in 1..total_page %}
+	
+	
+		<a class="btn {{ i == current_page ? 'btn-inverse' : '' }}" href="{{ app.request.basepath }}/index.php/{{ i }}">{{ i }}</a>
+		
+		
+	{% endfor %}
+	
+	
+	
+	
 {% endblock %}

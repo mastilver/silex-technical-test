@@ -11,32 +11,25 @@ class NewsService
 		//$this->formFactory = $formFactory;
 	}
 	
-	public function get_latest()
+	public function get_page($number)
 	{
 		$queryBuilder = $this->db->createQueryBuilder();
 		
 		$queryBuilder->select('*')
 					->from('news')
 					->orderBy('news.id', 'DESC')
-					->setFirstResult(0)
+					->setFirstResult(($number - 1) * 10)
 					->setMaxResults(10);
 		
 		
-		
-		
-		
 		return $this->db->fetchAll($queryBuilder->getSQL());
+	}
+	
+	public function get_nbr_page()
+	{
+		$sql = 'SELECT count(*) FROM news';
 		
-		//return $query->getArrayResult();
-		
-		
-		
-		
-		/*$sql = '	SELECT * FROM news
-					WHERE id <= 10
-					ORDER BY id desc';
-		
-		return $this->db->query($sql);*/
+		return ($this->db->executeQuery($sql)->fetch()['count'] + 10) / 10;
 	}
 	
 	public function get_id($id)
